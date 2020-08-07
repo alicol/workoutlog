@@ -20,7 +20,7 @@ const WorkoutEdit = (props) => {
     fetch(`http://localhost:3000/api/log/${props.workoutToUpdate.id}`, {
       method: "PUT",
       body: JSON.stringify({
-        updateLogEntry: {
+        logg: {
           description: editDesc,
           definition: editDef,
           result: editRes,
@@ -31,6 +31,7 @@ const WorkoutEdit = (props) => {
         Authorization: props.token,
       }),
     }).then((res) => {
+      console.log(res);
       props.fetchWorkouts();
       props.updateOff();
     });
